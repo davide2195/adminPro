@@ -8,6 +8,16 @@
     animation-fill-mode:both
 }
 
-#themecolors .selector {
+#themecolors .selector, .cursor {
   cursor: pointer;
 }
+
+
+#googlebtn {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+
+
