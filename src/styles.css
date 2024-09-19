@@ -1,6 +1,4 @@
 
-
-
 .fast{
     -webkit-animation-duration: 0.3s;
     animation-duration: 0.3s;
@@ -12,7 +10,6 @@
   cursor: pointer;
 }
 
-
 #googlebtn {
   align-items: center;
   display: flex;
@@ -23,6 +20,33 @@
 .img-avatar{
   height: 150px;
   width: 150px;
+}
+
+.w100{
+  width: 100px;
+}
+
+.w140{
+  width: 140px;
+}
+
+.avatar{
+  border-radius: 100%;
+  width: 40px;
+}
+
+.oculto{
+  display: none;
+}
+
+.fondo-modal-imagen{
+  background-color: rgba(0, 0, 0, 0.4);
+  height: 100px;
+  left: 0px;
+  position: fixed;
+  top: 0px;
+  width: 100%;
+  z-index: 99999;
 }
 
 

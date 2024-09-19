@@ -4,17 +4,20 @@ import { IncreaseByComponent } from './increase-by/increase-by.component';
 import { FormsModule } from '@angular/forms';
 import { DoughnutComponent } from './doughnut/doughnut.component';
 import { BaseChartDirective } from 'ng2-charts';
+import { ModalImagenComponent } from './modal-imagen/modal-imagen.component';
 
 
 
 @NgModule({
   declarations: [
     IncreaseByComponent,
-    DoughnutComponent
+    DoughnutComponent,
+    ModalImagenComponent
   ],
   exports: [
     IncreaseByComponent,
-    DoughnutComponent
+    DoughnutComponent,
+    ModalImagenComponent
   ],
   imports: [
     CommonModule,
