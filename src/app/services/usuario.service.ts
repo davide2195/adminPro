@@ -102,8 +102,6 @@ export class UsuarioService {
 
   }
 
-
-
   login( formData: RegisterForm ) {
 
     return this.http.post(`${ base_url }/login`, formData )
@@ -124,7 +122,6 @@ export class UsuarioService {
       })
      )
   }
-
 
   cargarUsuarios( desde: number = 0 ) {
 
