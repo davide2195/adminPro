@@ -1,4 +1,4 @@
-import { Routes, RouterModule } from '@angular/router';
+import { Routes, RouterModule, CanActivateFn } from '@angular/router';
 import { NgModule } from '@angular/core';
 
 import { authGuard } from '../guards/auth.guard';
@@ -13,10 +13,13 @@ import { RxjsComponent } from './rxjs/rxjs.component';
 import { PerfilComponent } from './perfil/perfil.component';
 
 // Mantenimientos
-import { UsuariosComponent } from './mantenimientos/usuarios/usuarios.component';
+import { BusquedaComponent } from './busqueda/busqueda.component';
 import { HospitalesComponent } from './mantenimientos/hospitales/hospitales.component';
-import { MedicosComponent } from './mantenimientos/medicos/medicos.component';
 import { MedicoComponent } from './mantenimientos/medicos/medico.component';
+import { MedicosComponent } from './mantenimientos/medicos/medicos.component';
+import { UsuariosComponent } from './mantenimientos/usuarios/usuarios.component';
+import { adminGuard } from '../guards/admin.guard';
+
 
 
 const routes: Routes = [
@@ -26,18 +29,21 @@ const routes: Routes = [
         canActivate: [ authGuard ],
         children: [
             { path: '', component: DashboardComponent, data: { title: 'Dashboard'}  },
-            { path: 'progress', component: ProgressComponent, data: { title: 'Progress'} },
-            { path: 'grafica1', component: Grafica1Component, data: { title: 'Chart'} },
             { path: 'account-settings', component: AccountSettingsComponent, data: { title: 'Settings'}},
+            { path: 'buscar/:termino', component: BusquedaComponent, data: { title: 'Busquedas'}},
+            { path: 'grafica1', component: Grafica1Component, data: { title: 'Chart'} },
+            { path: 'perfil', component: PerfilComponent, data: { title: 'Perfil de usuario'} },
+            { path: 'progress', component: ProgressComponent, data: { title: 'Progress'} },
             { path: 'promesas', component: PromesasComponent, data: { title: 'Promises'} },
             { path: 'rxjs', component: RxjsComponent, data: { title: 'RxJs'} },
-            { path: 'perfil', component: PerfilComponent, data: { title: 'Perfil de usuario'} },
 
             // Mantenimientos
-            { path: 'usuarios', component: UsuariosComponent, data: { title: 'Mantenimiento de usuarios'} },
             { path: 'hospitales', component: HospitalesComponent, data: { title: 'Mantenimiento de hospitales'} },
             { path: 'medicos', component: MedicosComponent, data: { title: 'Mantenimiento de medicos'} },
             { path: 'medicos/:id', component: MedicoComponent, data: { title: 'Mantenimiento de medicos'} },
+
+            // Rutas de Admin
+            { path: 'usuarios', canActivate: [ adminGuard ] , component: UsuariosComponent, data: { title: 'Mantenimiento de usuarios'} },
         ]
     },
 ];
