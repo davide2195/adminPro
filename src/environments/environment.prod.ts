@@ -2,5 +2,5 @@
 
 export const environment = {
   production: true,
-  base_url: 'http://localhost:4000/api'
+  base_url: 'https://admin-pro-backend-7hfn.onrender.com/api'
 };
